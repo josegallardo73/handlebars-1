@@ -1,0 +1,26 @@
+{{#if listExists}}
+    <thead class="thead-dark">
+        <tr>
+           {{#each listProducts}}
+                {{#if @first}}
+                    {{#each this}}
+                        {{#unless @last}}
+                            <th scope='col'>{{@key}}</th>
+                        {{/unless}}  
+                     {{/each}}
+                {{/if}}
+           {{/each}}
+        </tr>
+    </thead>
+    <tbody class="">
+        {{#each listProducts}}
+                 <tr>
+                    <td>{{this.title}}</td>
+                    <td>{{this.price}} €</td>
+                    <td><img class="img" src="{{this.thumbnail}}"</td>
+                 </tr>
+            {{/each}}
+    </tbody>
+{{else}}
+    <h2 class="no-products">No hay productos</h2>
+{{/if}}
